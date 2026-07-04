@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Railen Shielu Ramos — Administrative &amp; Virtual Support Professional</title>
+<meta name="description" content="Railen Shielu Ramos — Administrative Assistant &amp; Virtual Support Professional with 10+ years in operations, payroll, and client coordination." />
+<style>
+  :root{
+    --lav-50:#f5f2fc;
+    --lav-100:#ece5f9;
+    --lav-200:#dacdf1;
+    --lav-300:#c3b1e8;
+    --lav-400:#a48ddc;
+    --lav-500:#8a72cf;   /* primary */
+    --lav-600:#7259bb;
+    --lav-700:#5b459a;
+    --ink:#2b2542;       /* deep aubergine text */
+    --ink-soft:#5a5470;
+    --gold:#c9a24b;      /* secondary accent */
+    --gold-soft:#e4cf9a;
+    --card:rgba(255,255,255,.72);
+    --card-brd:rgba(138,114,207,.20);
+    --shadow:0 10px 40px -12px rgba(70,50,130,.28);
+    --shadow-lg:0 24px 60px -18px rgba(70,50,130,.42);
+    --radius:20px;
+    --font:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font);
+    color:var(--ink);
+    line-height:1.65;
+    background:#f3effb;
+    overflow-x:hidden;
+  }
+
+  /* ---------- Animated moving background ---------- */
+  .bg{position:fixed;inset:0;z-index:-2;overflow:hidden;
+    background:linear-gradient(120deg,#f6f2fd,#efe8fb,#f3edfb,#e9e0f8);
+    background-size:300% 300%;
+    animation:gradientShift 22s ease infinite;}
+  @keyframes gradientShift{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  .blob{position:fixed;z-index:-1;border-radius:50%;filter:blur(70px);opacity:.55;
+    will-change:transform;pointer-events:none}
+  .blob.b1{width:460px;height:460px;left:-120px;top:-80px;
+    background:radial-gradient(circle at 30% 30%,#b9a2ec,#8a72cf);
+    animation:float1 20s ease-in-out infinite}
+  .blob.b2{width:520px;height:520px;right:-160px;top:20%;
+    background:radial-gradient(circle at 30% 30%,#d9c7f2,#a48ddc);
+    animation:float2 26s ease-in-out infinite}
+  .blob.b3{width:400px;height:400px;left:20%;bottom:-140px;
+    background:radial-gradient(circle at 30% 30%,#e6d3a6,#c9a24b);
+    opacity:.28;animation:float3 30s ease-in-out infinite}
+  @keyframes float1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(120px,80px) scale(1.15)}}
+  @keyframes float2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-100px,60px) scale(1.1)}}
+  @keyframes float3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(80px,-70px) scale(1.2)}}
+  @media (prefers-reduced-motion:reduce){
+    .bg,.blob{animation:none}
+  }
+
+  /* ---------- Layout helpers ---------- */
+  .wrap{width:min(1120px,92%);margin-inline:auto}
+  section{padding:88px 0}
+  .eyebrow{display:inline-block;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;
+    font-weight:700;color:var(--lav-600);margin-bottom:.6rem}
+  .eyebrow::before{content:"";display:inline-block;width:26px;height:2px;background:var(--gold);
+    vertical-align:middle;margin-right:10px;transform:translateY(-3px)}
+  h2.title{font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.15;font-weight:800;letter-spacing:-.5px;margin-bottom:2.4rem}
+  h2.title span{color:var(--lav-600)}
+
+  /* ---------- Nav ---------- */
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+    background:rgba(246,242,253,.7);border-bottom:1px solid var(--card-brd)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.3px;font-size:1.05rem}
+  .brand .mark{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;color:#fff;
+    background:linear-gradient(135deg,var(--lav-500),var(--lav-700));box-shadow:var(--shadow);font-size:.9rem}
+  .nav-links{display:flex;align-items:center;gap:6px}
+  .nav-links a{color:var(--ink-soft);text-decoration:none;font-weight:600;font-size:.92rem;
+    padding:8px 14px;border-radius:10px;transition:.25s}
+  .nav-links a:hover{color:var(--lav-700);background:var(--lav-100)}
+  .btn{display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:none;
+    font-family:inherit;font-weight:700;font-size:.92rem;padding:11px 22px;border-radius:12px;
+    text-decoration:none;transition:.28s;white-space:nowrap}
+  .btn-primary{color:#fff;background:linear-gradient(135deg,var(--lav-500),var(--lav-700));
+    box-shadow:0 8px 22px -6px rgba(114,89,187,.55)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px -8px rgba(114,89,187,.7)}
+  .btn-ghost{color:var(--lav-700);background:rgba(255,255,255,.7);border:1px solid var(--card-brd)}
+  .btn-ghost:hover{background:#fff;transform:translateY(-2px)}
+  .hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+  .hamburger span{width:24px;height:2.4px;background:var(--ink);border-radius:2px;transition:.3s}
+
+  /* ---------- Hero ---------- */
+  .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;
+    padding-top:70px;padding-bottom:70px}
+  .hero h1{font-size:clamp(2.1rem,5vw,3.5rem);line-height:1.05;font-weight:800;letter-spacing:-1.2px;margin:.4rem 0 .6rem}
+  .hero h1 .grad{background:linear-gradient(120deg,var(--lav-600),var(--gold));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .role{font-size:1.12rem;font-weight:600;color:var(--lav-700);margin-bottom:1rem}
+  .hero p.lead{font-size:1.03rem;color:var(--ink-soft);max-width:52ch;margin-bottom:1.8rem}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:1.7rem}
+  .chips{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:600;color:var(--ink-soft);
+    background:rgba(255,255,255,.7);border:1px solid var(--card-brd);padding:7px 13px;border-radius:999px}
+  .chip svg{width:15px;height:15px;color:var(--lav-600)}
+
+  .portrait-wrap{position:relative;justify-self:center}
+  .portrait{width:min(340px,80vw);aspect-ratio:1;border-radius:50%;object-fit:cover;
+    border:8px solid #fff;box-shadow:var(--shadow-lg);position:relative;z-index:2}
+  .portrait-ring{position:absolute;inset:-18px;border-radius:50%;z-index:1;
+    background:conic-gradient(from 0deg,var(--lav-400),var(--gold-soft),var(--lav-600),var(--lav-400));
+    animation:spin 14s linear infinite;filter:blur(2px);opacity:.9}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  /* ---------- Stat row ---------- */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .stat{background:var(--card);border:1px solid var(--card-brd);border-radius:var(--radius);
+    padding:26px 22px;text-align:center;backdrop-filter:blur(8px);transition:.3s;position:relative;overflow:hidden}
+  .stat::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:3px;
+    background:linear-gradient(90deg,var(--lav-500),var(--gold));transform:scaleX(0);transform-origin:left;transition:.35s}
+  .stat:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+  .stat:hover::after{transform:scaleX(1)}
+  .stat .num{font-size:2.1rem;font-weight:800;color:var(--lav-600);letter-spacing:-1px}
+  .stat .lbl{font-size:.85rem;color:var(--ink-soft);font-weight:600;margin-top:4px}
+  /* highlighted feature stat */
+  .stat.feature{background:linear-gradient(160deg,var(--lav-500),var(--lav-700));border-color:transparent;
+    box-shadow:0 14px 34px -12px rgba(114,89,187,.6)}
+  .stat.feature .num{color:#fff}
+  .stat.feature .lbl{color:rgba(255,255,255,.88)}
+  .stat.feature::after{background:linear-gradient(90deg,var(--gold-soft),#fff)}
+
+  /* ---------- Cards / grids ---------- */
+  .card{background:var(--card);border:1px solid var(--card-brd);border-radius:var(--radius);
+    backdrop-filter:blur(8px);box-shadow:var(--shadow);transition:transform .32s,box-shadow .32s}
+  .card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .about .card{padding:34px}
+  .about p{color:var(--ink-soft);font-size:1.05rem;margin-bottom:1rem}
+  .about .why-list{list-style:none;display:grid;gap:16px}
+  .about .why-list li{display:flex;gap:14px;align-items:flex-start}
+  .about .why-list .ic{flex-shrink:0;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
+    background:var(--lav-100);color:var(--lav-600)}
+  .about .why-list .ic svg{width:19px;height:19px}
+  .about .why-list b{display:block;color:var(--ink)}
+  .about .why-list span{font-size:.92rem;color:var(--ink-soft)}
+
+  /* Experience timeline */
+  .timeline{display:grid;gap:24px}
+  .exp{display:grid;grid-template-columns:210px 1fr;gap:0;overflow:hidden}
+  .exp .meta{padding:28px;background:linear-gradient(160deg,var(--lav-500),var(--lav-700));color:#fff}
+  .exp .meta .date{font-size:.8rem;font-weight:700;opacity:.85;letter-spacing:.03em}
+  .exp .meta h3{font-size:1.15rem;font-weight:800;margin:10px 0 6px;line-height:1.2}
+  .exp .meta .co{font-size:.9rem;opacity:.92}
+  .exp .meta .loc{font-size:.8rem;opacity:.75;margin-top:8px;display:flex;align-items:center;gap:6px}
+  .exp .body{padding:28px}
+  .exp .body ul{list-style:none;display:grid;gap:12px}
+  .exp .body li{display:flex;gap:12px;font-size:.95rem;color:var(--ink-soft)}
+  .exp .body li::before{content:"";flex-shrink:0;width:8px;height:8px;margin-top:8px;border-radius:50%;
+    background:var(--gold);box-shadow:0 0 0 4px rgba(201,162,75,.16)}
+
+  /* Skills */
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+  .skill{padding:18px 20px;display:flex;align-items:center;gap:14px;font-weight:600;font-size:.95rem}
+  .skill .dot{width:40px;height:40px;flex-shrink:0;border-radius:11px;display:grid;place-items:center;
+    background:linear-gradient(135deg,var(--lav-100),var(--lav-200));color:var(--lav-700);transition:.3s}
+  .skill:hover .dot{background:linear-gradient(135deg,var(--lav-500),var(--lav-700));color:#fff;transform:rotate(-6deg) scale(1.08)}
+  .skill .dot svg{width:19px;height:19px}
+
+  /* Two-col info (tools/edu/lang) */
+  .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .info-card{padding:30px}
+  .info-card h3{font-size:1.1rem;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+  .info-card h3 .ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;color:#fff;
+    background:linear-gradient(135deg,var(--lav-500),var(--lav-700))}
+  .info-card h3 .ic svg{width:17px;height:17px}
+  .info-card ul{list-style:none;display:grid;gap:10px}
+  .info-card li{color:var(--ink-soft);font-size:.95rem;display:flex;gap:10px;align-items:center}
+  .info-card li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--lav-400);flex-shrink:0}
+  .info-card .edu-deg{font-weight:800;color:var(--ink);font-size:1rem}
+  .info-card .edu-sub{color:var(--ink-soft);font-size:.92rem}
+  .info-card .edu-year{display:inline-block;margin-top:8px;font-size:.78rem;font-weight:700;color:var(--lav-700);
+    background:var(--lav-100);padding:4px 12px;border-radius:999px}
+  .lang-bar{margin-top:6px}
+  .lang-bar .l-top{display:flex;justify-content:space-between;font-size:.9rem;font-weight:600;margin-bottom:6px}
+  .lang-bar .track{height:8px;border-radius:999px;background:var(--lav-100);overflow:hidden}
+  .lang-bar .fill{height:100%;width:100%;border-radius:999px;background:linear-gradient(90deg,var(--lav-500),var(--gold))}
+
+  /* References */
+  .ref-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .ref{padding:28px;display:flex;gap:18px;align-items:flex-start}
+  .ref .av{width:54px;height:54px;flex-shrink:0;border-radius:14px;display:grid;place-items:center;font-weight:800;
+    font-size:1.2rem;color:#fff;background:linear-gradient(135deg,var(--lav-500),var(--lav-700))}
+  .ref h4{font-size:1.05rem;font-weight:800}
+  .ref p{font-size:.9rem;color:var(--ink-soft)}
+  .ref .quote{margin-top:10px;font-size:.85rem;color:var(--lav-700);font-style:italic}
+
+  /* Contact */
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:36px;align-items:stretch}
+  .contact-info{padding:38px;display:flex;flex-direction:column;justify-content:center;
+    background:linear-gradient(160deg,var(--lav-600),var(--lav-700));color:#fff}
+  .contact-info h3{font-size:1.5rem;font-weight:800;margin-bottom:10px}
+  .contact-info p{opacity:.9;margin-bottom:24px;font-size:.98rem}
+  .contact-info .ci{display:flex;gap:14px;align-items:center;margin-bottom:16px}
+  .contact-info .ci .ic{width:42px;height:42px;flex-shrink:0;border-radius:12px;display:grid;place-items:center;
+    background:rgba(255,255,255,.16)}
+  .contact-info .ci .ic svg{width:18px;height:18px}
+  .contact-info .ci small{display:block;opacity:.7;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}
+  .contact-info .ci span{font-weight:600}
+  form.contact-form{padding:38px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:.85rem;font-weight:700;margin-bottom:7px;color:var(--ink)}
+  .field input,.field textarea{width:100%;font-family:inherit;font-size:.95rem;color:var(--ink);
+    padding:13px 16px;border-radius:12px;border:1.5px solid var(--card-brd);background:rgba(255,255,255,.85);
+    transition:.25s;resize:vertical}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--lav-500);
+    box-shadow:0 0 0 4px rgba(138,114,207,.15);background:#fff}
+  .field.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  form.contact-form .btn-primary{width:100%;justify-content:center;font-size:1rem;padding:14px}
+  .form-note{font-size:.8rem;color:var(--ink-soft);text-align:center;margin-top:12px}
+  .form-status{display:none;margin-top:16px;padding:14px 16px;border-radius:12px;font-size:.9rem;font-weight:600;text-align:center}
+  .form-status.ok{display:block;background:#e7f7ee;color:#1c7a44;border:1px solid #b6e6c9}
+  .form-status.err{display:block;background:#fdeaea;color:#b53232;border:1px solid #f3c4c4}
+
+  /* Footer */
+  footer{padding:40px 0;text-align:center;border-top:1px solid var(--card-brd);color:var(--ink-soft);font-size:.9rem}
+  footer .brand{justify-content:center;margin-bottom:12px}
+  footer a{color:var(--lav-700);text-decoration:none;font-weight:600}
+
+  /* Reveal on scroll */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr;text-align:center;gap:40px}
+    .hero .portrait-wrap{order:-1}
+    .hero-cta,.chips{justify-content:center}
+    .hero p.lead{margin-inline:auto}
+    .stats{grid-template-columns:1fr 1fr}
+    .about{grid-template-columns:1fr}
+    .info-grid{grid-template-columns:1fr}
+    .ref-grid{grid-template-columns:1fr}
+    .contact-grid{grid-template-columns:1fr}
+    .exp{grid-template-columns:1fr}
+    .nav-links{position:fixed;inset:0 0 auto auto;top:62px;right:4%;flex-direction:column;align-items:stretch;
+      background:#fff;border:1px solid var(--card-brd);border-radius:16px;padding:14px;box-shadow:var(--shadow-lg);
+      width:220px;gap:4px;display:none}
+    .nav-links.open{display:flex}
+    .hamburger{display:flex}
+  }
+  @media (max-width:520px){
+    section{padding:60px 0}
+    .field.two{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand"><span class="mark">RR</span> Railen Ramos</div>
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#references">References</a>
+        <a class="btn btn-primary" href="#contact">Email Me</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero wrap" id="home" style="padding-top:60px">
+    <div class="reveal">
+      <span class="eyebrow">Administrative &amp; Virtual Support</span>
+      <h1>Railen Shielu <span class="grad">Ramos</span></h1>
+      <div class="role">Administrative Assistant / Virtual Support Professional</div>
+      <p class="lead">Self-directed administrative professional with 10+ years in operations, payroll, and client coordination — known for precision, discretion, and strong English communication. Ready to support global clients remotely across time zones.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+          Email Me
+        </a>
+        <a href="#experience" class="btn btn-ghost">View Experience</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>Davao City, Philippines</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Available EST / PST Hours</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>+63 933 960 5313</span>
+      </div>
+    </div>
+    <div class="portrait-wrap reveal">
+      <div class="portrait-ring"></div>
+      <img class="portrait" src="railen.png" alt="Railen Shielu Ramos" />
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="wrap" style="padding-top:0">
+    <div class="stats reveal">
+      <div class="stat"><div class="num">10+</div><div class="lbl">Years Experience</div></div>
+      <div class="stat feature"><div class="num">0</div><div class="lbl">Payroll Errors</div></div>
+      <div class="stat"><div class="num">8</div><div class="lbl">Clean Annual Audits</div></div>
+      <div class="stat"><div class="num">25</div><div class="lbl">Team Supervised</div></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="about">
+        <div class="reveal">
+          <span class="eyebrow">About Me</span>
+          <h2 class="title">Precision &amp; discretion, <span>delivered remotely</span></h2>
+          <p>I'm an experienced administrative professional who thrives on keeping operations running smoothly behind the scenes — from inbox and calendar management to payroll, billing, and confidential records. My background as an Administrative Supervisor taught me to prioritise independently, hit deadlines under pressure, and be the reliable point of contact everyone trusts.</p>
+          <p>With a native-level command of English and experience coordinating across time zones, I'm ready to be the dependable right hand for busy executives and growing teams anywhere in the world.</p>
+        </div>
+        <div class="card reveal">
+          <div style="padding:34px">
+            <span class="eyebrow">Why I Excel Remotely</span>
+            <ul class="why-list" style="margin-top:14px">
+              <li>
+                <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <div><b>Self-directed leadership</b><span>8 years supervising operations independently, with strong English communication across time zones.</span></div>
+              </li>
+              <li>
+                <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+                <div><b>Fully equipped home office</b><span>Skilled in Microsoft Office &amp; Google Workspace with a reliable, professional remote setup.</span></div>
+              </li>
+              <li>
+                <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></span>
+                <div><b>Trusted with confidential data</b><span>A decade of handling sensitive payroll, billing, and records with complete accuracy and discretion.</span></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="reveal"><span class="eyebrow">Career Path</span>
+      <h2 class="title">Work <span>Experience</span></h2></div>
+      <div class="timeline">
+        <article class="exp card reveal">
+          <div class="meta">
+            <div class="date">Feb 2018 – Jun 2026</div>
+            <h3>Administrative Supervisor</h3>
+            <div class="co">Lapanday Foods Corporation</div>
+            <div class="loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>Davao City</div>
+          </div>
+          <div class="body"><ul>
+            <li>Supervised daily administrative operations for a 25-person team, independently prioritising tasks and meeting deadlines in a fast-paced environment.</li>
+            <li>Processed payroll and billing for 25 employees with zero errors across 8 consecutive annual audits.</li>
+            <li>Prepared reports, maintained digital filing systems, and served as the central point of contact for staff and management inquiries.</li>
+          </ul></div>
+        </article>
+
+        <article class="exp card reveal">
+          <div class="meta">
+            <div class="date">Jun 2017 – Jan 2018</div>
+            <h3>Administrative Secretary</h3>
+            <div class="co">CC Technologies</div>
+            <div class="loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>Davao City</div>
+          </div>
+          <div class="body"><ul>
+            <li>Served as the primary point of contact for 5 client accounts, managing inquiries, scheduling, and follow-ups by phone and in person.</li>
+            <li>Organised correspondence and prepared administrative reports, keeping documentation clear and audit-ready.</li>
+            <li>Maintained up-to-date filing systems and account records, ensuring information stayed accurate and easy to retrieve.</li>
+          </ul></div>
+        </article>
+
+        <article class="exp card reveal">
+          <div class="meta">
+            <div class="date">Feb 2012 – Jul 2016</div>
+            <h3>Product Specialist / Admin Staff</h3>
+            <div class="co">OMRON Global</div>
+            <div class="loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>Davao City</div>
+          </div>
+          <div class="body"><ul>
+            <li>Advised clients on product features and specifications, supporting confident purchasing decisions and building lasting relationships.</li>
+            <li>Conducted product and market research, monitoring competitor activity to inform sales reporting and planning.</li>
+            <li>Managed inventory data and stock records, ensuring accurate product availability across all assigned accounts.</li>
+          </ul></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="reveal"><span class="eyebrow">Core Competencies</span>
+      <h2 class="title">Skills &amp; <span>Expertise</span></h2></div>
+      <div class="skills-grid">
+        <!-- each skill -->
+        <div class="skill card reveal"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></span>Email &amp; Inbox Management</div>
+        <div class="skill card reveal"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>Calendar &amp; Scheduling</div>
+        <div class="skill card reveal"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5M3 12a9 3 0 0 0 18 0"/></svg></span>Data Entry &amp; Databases</div>
+        <div class="skill card reveal"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/></svg></span>Document &amp; File Management</div>
+        <div class="skill card reveal"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-5"/></svg></span>Report Preparation</div>
+        <div class="skill card reveal"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Client Coordination</div>
+        <div class="skill card reveal"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>Payroll &amp; Billing Support</div>
+        <div class="skill card reveal"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>Research &amp; Information Gathering</div>
+        <div class="skill card reveal"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/></svg></span>Appointment Setting</div>
+        <div class="skill card reveal"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 4v16M4 8h4M4 16h4"/></svg></span>Records Management</div>
+        <div class="skill card reveal"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>Confidential Data Handling</div>
+        <div class="skill card reveal"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Team Leadership</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS / EDU / LANGUAGE -->
+  <section id="toolkit">
+    <div class="wrap">
+      <div class="reveal"><span class="eyebrow">Behind The Desk</span>
+      <h2 class="title">Toolkit &amp; <span>Background</span></h2></div>
+      <div class="info-grid">
+        <div class="info-card card reveal">
+          <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z"/></svg></span>Tools</h3>
+          <ul>
+            <li>Microsoft Office Suite</li>
+            <li>Google Workspace</li>
+            <li>Zoom / MS Teams</li>
+            <li>Email &amp; Calendar Apps</li>
+          </ul>
+        </div>
+        <div class="info-card card reveal">
+          <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></span>Education</h3>
+          <div class="edu-deg">BS in Nursing</div>
+          <div class="edu-sub">Brokenshire College Inc.</div>
+          <span class="edu-year">2016 – 2020</span>
+        </div>
+        <div class="info-card card reveal">
+          <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14M5 8a2 2 0 0 1 0-4h10l4 4M12 4v16m-4 0h8"/></svg></span>Language</h3>
+          <div class="lang-bar">
+            <div class="l-top"><span>English</span><span>Native-level</span></div>
+            <div class="track"><div class="fill"></div></div>
+          </div>
+          <p style="font-size:.9rem;color:var(--ink-soft);margin-top:14px">Confident, professional written and spoken English for global client communication.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERENCES -->
+  <section id="references">
+    <div class="wrap">
+      <div class="reveal"><span class="eyebrow">Endorsements</span>
+      <h2 class="title"><span>References</span></h2></div>
+      <div class="ref-grid">
+        <div class="ref card reveal">
+          <div class="av">MA</div>
+          <div>
+            <h4>Marex Abenojar</h4>
+            <p>Executive Assistant of Daniel Zia, Zia Group</p>
+            <div class="quote">Available upon request</div>
+          </div>
+        </div>
+        <div class="ref card reveal">
+          <div class="av">MA</div>
+          <div>
+            <h4>Mariel Albaira</h4>
+            <p>Administrative Assistant, The Studio at Kearny Point &amp; Ciel Power LLC</p>
+            <div class="quote">Available upon request</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="reveal"><span class="eyebrow">Get In Touch</span>
+      <h2 class="title">Let's <span>work together</span></h2></div>
+      <div class="contact-grid">
+        <div class="contact-info card reveal">
+          <h3>Reach out</h3>
+          <p>Have a role or project in mind? Fill in the form and I'll get back to you shortly.</p>
+          <div class="ci">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></span>
+            <div><small>Email</small><span>rsalbaira12@gmail.com</span></div>
+          </div>
+          <div class="ci">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span>
+            <div><small>Phone</small><span>+63 933 960 5313</span></div>
+          </div>
+          <div class="ci">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><small>Location</small><span>Davao City, Philippines</span></div>
+          </div>
+          <div class="ci">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+            <div><small>Availability</small><span>EST / PST Hours</span></div>
+          </div>
+        </div>
+
+        <form class="contact-form card reveal" id="contactForm">
+          <div class="field two">
+            <div><label for="name">Your Name</label><input id="name" name="name" type="text" placeholder="Jane Doe" required /></div>
+            <div><label for="email">Your Email</label><input id="email" name="email" type="email" placeholder="jane@company.com" required /></div>
+          </div>
+          <div class="field">
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" type="text" placeholder="e.g. Virtual Assistant opportunity" required />
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me a little about the role or task you need help with…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="sendBtn">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+            Send Message
+          </button>
+          <div class="form-note">Your message is delivered straight to Railen's inbox.</div>
+          <div class="form-status" id="formStatus"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="brand"><span class="mark">RR</span> Railen Shielu Ramos</div>
+      <p>Administrative Assistant / Virtual Support Professional · Davao City, Philippines</p>
+      <p style="margin-top:8px">© <span id="yr"></span> Railen Ramos · <a href="#contact">Get in touch</a></p>
+    </div>
+  </footer>
+
+<script>
+  // Mobile nav
+  const ham = document.getElementById('hamburger');
+  const nav = document.getElementById('navLinks');
+  ham.addEventListener('click', ()=> nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> nav.classList.remove('open')));
+
+  // Year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Parallax blobs on mouse
+  window.addEventListener('mousemove',(e)=>{
+    const x=(e.clientX/window.innerWidth-.5), y=(e.clientY/window.innerHeight-.5);
+    document.querySelector('.b1').style.marginLeft = x*30+'px';
+    document.querySelector('.b2').style.marginLeft = x*-30+'px';
+    document.querySelector('.b1').style.marginTop = y*30+'px';
+  });
+
+  // Contact form -> FormSubmit (AJAX, emails Railen)
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+  const sendBtn = document.getElementById('sendBtn');
+  const ENDPOINT = 'https://formsubmit.co/ajax/rsalbaira12@gmail.com';
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    status.className = 'form-status';
+    sendBtn.disabled = true; sendBtn.style.opacity=.7;
+    const original = sendBtn.innerHTML; sendBtn.innerHTML = 'Sending…';
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      _subject: 'Portfolio contact: ' + form.subject.value,
+      subject: form.subject.value,
+      message: form.message.value,
+      _template: 'table',
+      _captcha: 'false'
+    };
+    try{
+      const res = await fetch(ENDPOINT,{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify(data)
+      });
+      const out = await res.json();
+      if(res.ok){
+        status.className='form-status ok';
+        status.textContent='✓ Thank you! Your message has been sent to Railen.';
+        form.reset();
+      }else{
+        throw new Error(out.message || 'Something went wrong');
+      }
+    }catch(err){
+      status.className='form-status err';
+      status.innerHTML='Could not send automatically. Email directly at <a href="mailto:rsalbaira12@gmail.com" style="color:inherit;text-decoration:underline">rsalbaira12@gmail.com</a>.';
+    }finally{
+      sendBtn.disabled=false; sendBtn.style.opacity=1; sendBtn.innerHTML=original;
+    }
+  });
+</script>
+</body>
+</html>
